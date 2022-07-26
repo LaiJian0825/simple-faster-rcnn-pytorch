@@ -116,8 +116,9 @@ class VOCBboxDataset:
             bbox.append([
                 int(bndbox_anno.find(tag).text) - 1
                 for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
-            # name = obj.find('name').text.lower().strip()
-            name = obj.find('name').text.strip()
+            name = obj.find('name').text.lower().strip()
+            # name = obj.find('name').text.strip()
+            print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
         bbox = np.stack(bbox).astype(np.float32)
         label = np.stack(label).astype(np.int32)
