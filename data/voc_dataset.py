@@ -118,7 +118,7 @@ class VOCBboxDataset:
                 for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
             name = obj.find('name').text.lower().strip()
             # name = obj.find('name').text.strip()
-            print(name)
+            # print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
         bbox = np.stack(bbox).astype(np.float32)
         label = np.stack(label).astype(np.int32)
