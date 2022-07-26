@@ -135,23 +135,7 @@ class VOCBboxDataset:
 
 
 VOC_BBOX_LABEL_NAMES = (
-    'aeroplane',
-    'bicycle',
-    'bird',
-    'boat',
-    'bottle',
-    'bus',
-    'car',
-    'cat',
-    'chair',
-    'cow',
-    'diningtable',
-    'dog',
-    'horse',
-    'motorbike',
-    'person',
-    'pottedplant',
-    'sheep',
-    'sofa',
-    'train',
-    'tvmonitor')
+    'cls1','cls2','cls3','cls4','cls5','cls6','cls7','cls8','cls9','cls10',
+    'cls11','cls12','cls13','cls14','cls15','cls16','cls17','cls18','cls19','cls20',
+    'cls21','cls22','cls23','cls24','cls25','cls26','cls27','cls28','cls29','cls30',
+    'cls31','cls32')
