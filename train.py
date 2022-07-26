@@ -51,13 +51,13 @@ def train(**kwargs):
     dataset = Dataset(opt)
     print('load data')
     dataloader = data_.DataLoader(dataset, \
-                                  batch_size=1, \
+                                  batch_size=2, \
                                   shuffle=True, \
                                   # pin_memory=True,
                                   num_workers=opt.num_workers)
     testset = TestDataset(opt)
     test_dataloader = data_.DataLoader(testset,
-                                       batch_size=1,
+                                       batch_size=2,
                                        num_workers=opt.test_num_workers,
                                        shuffle=False, \
                                        pin_memory=True
@@ -110,6 +110,7 @@ def train(**kwargs):
         log_info = 'lr:{}, map:{},loss:{}'.format(str(lr_),
                                                   str(eval_result['map']),
                                                   str(trainer.get_meter_data()))
+        print(log_info)
         trainer.vis.log(log_info)
 
         if eval_result['map'] > best_map:
