@@ -77,9 +77,9 @@ If you don't use anaconda, then:
 - install other dependencies:  `pip install visdom scikit-image tqdm fire ipdb pprint matplotlib torchnet`
 
 - start visdom for visualization
-
-```Bash
-nohup python -m visdom.server &
+```
+# 服务器中启动visdom
+python -m visdom.server -p post
 ```
 
 
