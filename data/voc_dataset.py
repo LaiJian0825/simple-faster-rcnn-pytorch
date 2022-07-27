@@ -127,14 +127,14 @@ class VOCBboxDataset:
         if len(bbox) >= 2:
             bbox = np.stack(bbox).astype(np.float64)
             # print(bbox.shape)
-            label = np.stack(label).astype(np.int32)
-            # print(label.shape)
-            # When `use_difficult==False`, all elements in `difficult` are False.
-            difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
+        label = np.stack(label).astype(np.int32)
+        # print(label.shape)
+        # When `use_difficult==False`, all elements in `difficult` are False.
+        difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
 
-            # Load a image
-            img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.png')
-            img = read_image(img_file, color=True)
+        # Load a image
+        img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.png')
+        img = read_image(img_file, color=True)
 
         # if self.return_difficult:
         #     return img, bbox, label, difficult
