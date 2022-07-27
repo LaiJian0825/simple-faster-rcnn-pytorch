@@ -122,7 +122,7 @@ class VOCBboxDataset:
             name = obj.find('name').text.strip()
             # print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
-        bbox = np.stack(bbox).astype(np.float32)
+        bbox = np.stack(bbox).astype(np.float64)
         # print(bbox.shape)
         label = np.stack(label).astype(np.int32)
         # print(label.shape)
