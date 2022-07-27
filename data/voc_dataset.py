@@ -114,8 +114,8 @@ class VOCBboxDataset:
             bndbox_anno = obj.find('bndbox')
             # subtract 1 to make pixel indexes 0-based
             bbox.append([
-                # int(bndbox_anno.find(tag).text) - 1
-                int(bndbox_anno.find(tag).text)
+                int(bndbox_anno.find(tag).text) - 1
+                # int(bndbox_anno.find(tag).text)
                 for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
 
             # name = obj.find('name').text.lower().strip()
