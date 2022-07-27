@@ -116,7 +116,7 @@ class VOCBboxDataset:
             bbox.append([
                 # int(bndbox_anno.find(tag).text) - 1
                 int(bndbox_anno.find(tag).text)
-                for tag in ('xmin', 'ymin', 'xmax', 'ymax')])
+                for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
 
             # name = obj.find('name').text.lower().strip()
             name = obj.find('name').text.strip()
@@ -125,9 +125,8 @@ class VOCBboxDataset:
         # print(bbox)
         # print(len(bbox))
         if len(bbox) >= 2:
-            bbox = np.stack(bbox).astype(np.float64)
+            bbox = np.stack(bbox).astype(np.float32)
             # print(bbox.shape)
-        if len(label) >= 2:
             label = np.stack(label).astype(np.int32)
         # print(label.shape)
         # When `use_difficult==False`, all elements in `difficult` are False.
