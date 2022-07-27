@@ -101,10 +101,10 @@ class VOCBboxDataset:
         id_ = self.ids[i]
         anno = ET.parse(
             os.path.join(self.data_dir, 'Annotations', id_ + '.xml'))
-        print(id_)
         bbox = list()
         label = list()
         difficult = list()
+        print(len(anno.findall('object')))
         for obj in anno.findall('object'):
             # when in not using difficult split, and the object is
             # difficult, skipt it.
