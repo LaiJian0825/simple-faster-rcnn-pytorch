@@ -105,7 +105,7 @@ class Dataset:
 
     def __getitem__(self, idx):
         ori_img, bbox, label, difficult = self.db.get_example(idx)
-        print(bbox)
+        # print(bbox)
 
         img, bbox, label, scale = self.tsf((ori_img, bbox, label))
         # TODO: check whose stride is negative to fix this instead copy all
