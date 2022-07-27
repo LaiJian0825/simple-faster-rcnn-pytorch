@@ -109,22 +109,22 @@ class VOCBboxDataset:
             # difficult, skipt it.
             if not self.use_difficult and int(obj.find('difficult').text) == 1:
                 continue
-
             difficult.append(int(obj.find('difficult').text))
             bndbox_anno = obj.find('bndbox')
             # subtract 1 to make pixel indexes 0-based
             bbox.append([
                 # int(bndbox_anno.find(tag).text) - 1
                 int(bndbox_anno.find(tag).text)
-                for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
+                for tag in ('xmin', 'ymin', 'xmax', 'ymax')])
+            print(bbox)
             # name = obj.find('name').text.lower().strip()
             name = obj.find('name').text.strip()
             # print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
         bbox = np.stack(bbox).astype(np.float32)
-        print(bbox.shape)
+        # print(bbox.shape)
         label = np.stack(label).astype(np.int32)
-        print(label.shape)
+        # print(label.shape)
         # When `use_difficult==False`, all elements in `difficult` are False.
         difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
 
