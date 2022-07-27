@@ -43,7 +43,7 @@ class Config:
     # debug
     debug_file = '/tmp/debugf'
 
-    test_num = 10000
+    test_num = 34
     # model
     load_path = None
 
