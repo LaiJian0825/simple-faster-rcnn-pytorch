@@ -116,7 +116,7 @@ class VOCBboxDataset:
                 # int(bndbox_anno.find(tag).text) - 1
                 int(bndbox_anno.find(tag).text)
                 for tag in ('xmin', 'ymin', 'xmax', 'ymax')])
-            print(bbox)
+
             # name = obj.find('name').text.lower().strip()
             name = obj.find('name').text.strip()
             # print(name)
