@@ -121,9 +121,9 @@ class VOCBboxDataset:
             # print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
         bbox = np.stack(bbox).astype(np.float32)
-        print(bbox)
+        print(bbox.shape())
         label = np.stack(label).astype(np.int32)
-        print(label)
+        print(label.shape())
         # When `use_difficult==False`, all elements in `difficult` are False.
         difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
 
