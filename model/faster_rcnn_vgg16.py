@@ -56,7 +56,7 @@ class FasterRCNNVGG16(FasterRCNN):
     feat_stride = 16  # downsample 16x for output of conv5 in vgg16
     # 类别数量更改
     def __init__(self,
-                 n_fg_class=33,
+                 n_fg_class=34,
                  ratios=[0.5, 1, 2],
                  anchor_scales=[8, 16, 32]
                  ):
