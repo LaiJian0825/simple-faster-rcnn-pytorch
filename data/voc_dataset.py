@@ -104,30 +104,29 @@ class VOCBboxDataset:
         bbox = list()
         label = list()
         difficult = list()
-        if len(anno.findall('object')) >= 2:
-            for obj in anno.findall('object'):
-                # when in not using difficult split, and the object is
-                # difficult, skipt it.
-                if not self.use_difficult and int(obj.find('difficult').text) == 1:
-                    continue
-                difficult.append(int(obj.find('difficult').text))
-                bndbox_anno = obj.find('bndbox')
-                # subtract 1 to make pixel indexes 0-based
-                bbox.append([
-                    int(bndbox_anno.find(tag).text) - 1
-                    # int(bndbox_anno.find(tag).text)
-                    for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
+        for obj in anno.findall('object'):
+            # when in not using difficult split, and the object is
+            # difficult, skipt it.
+            if not self.use_difficult and int(obj.find('difficult').text) == 1:
+                continue
+            difficult.append(int(obj.find('difficult').text))
+            bndbox_anno = obj.find('bndbox')
+            # subtract 1 to make pixel indexes 0-based
+            bbox.append([
+                int(bndbox_anno.find(tag).text) - 1
+                # int(bndbox_anno.find(tag).text)
+                for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
 
-                # name = obj.find('name').text.lower().strip()
-                name = obj.find('name').text.strip()
-                # print(name)
-                label.append(VOC_BBOX_LABEL_NAMES.index(name))
+            # name = obj.find('name').text.lower().strip()
+            name = obj.find('name').text.strip()
+            # print(name)
+            label.append(VOC_BBOX_LABEL_NAMES.index(name))
         # print(bbox)
         # print(len(bbox))
-        if len(bbox) >= 2:
-            bbox = np.stack(bbox).astype(np.float32)
-            # print(bbox.shape)
-            label = np.stack(label).astype(np.int32)
+
+        bbox = np.stack(bbox).astype(np.float32)
+        # print(bbox.shape)
+        label = np.stack(label).astype(np.int32)
         # print(label.shape)
         # When `use_difficult==False`, all elements in `difficult` are False.
         difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
