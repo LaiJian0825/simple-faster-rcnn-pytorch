@@ -83,8 +83,8 @@ class VOCBboxDataset:
         id_list = list()
         for i in id_list_read:
             obj = ET.parse(os.path.join(data_dir, 'Annotations', i + '.xml'))
-        if obj.findall('object'):
-            id_list.append(i)
+            if obj.findall('object'):
+                id_list.append(i)
         self.ids = id_list
         # id_list_file = os.path.join(
         #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
