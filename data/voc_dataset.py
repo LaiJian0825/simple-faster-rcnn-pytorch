@@ -126,8 +126,8 @@ class VOCBboxDataset:
             name = obj.find('name').text.strip()
             # print(name)
             label.append(VOC_BBOX_LABEL_NAMES.index(name))
-        # print(bbox)
-        # print(len(bbox))
+        print(bbox)
+        print(len(bbox))
         # if len(bbox) >= 2:
         bbox = np.stack(bbox).astype(np.float32)
         # print(bbox.shape)
