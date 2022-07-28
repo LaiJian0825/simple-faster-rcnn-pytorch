@@ -138,8 +138,8 @@ class VOCBboxDataset:
         difficult = np.array(difficult, dtype=np.bool).astype(np.uint8)  # PyTorch don't support np.bool
 
         # Load a image
-        # img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.png') Ali
-        img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.jpg')
+        img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.png')
+        # img_file = os.path.join(self.data_dir, 'JPEGImages', id_ + '.jpg')
         img = read_image(img_file, color=True)
 
         # if self.return_difficult:
