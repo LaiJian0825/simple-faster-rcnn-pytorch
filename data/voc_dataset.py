@@ -79,8 +79,16 @@ class VOCBboxDataset:
         #         )
         id_list_file = os.path.join(
             data_dir, 'ImageSets/Main/{0}.txt'.format(split))
-
-        self.ids = [id_.strip() for id_ in open(id_list_file)]
+        id_list_read = [id_.strip() for id_ in open(id_list_file)]
+        id_list = list()
+        for i in id_list_read:
+            obj = ET.parse(os.path.join(data_dir, 'Annotations', i + '.xml'))
+        if obj.findall('object'):
+            id_list.append(i)
+        self.ids = id_list
+        # id_list_file = os.path.join(
+        #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
+        # self.ids = [id_.strip() for id_ in open(id_list_file)]
         self.data_dir = data_dir
         self.use_difficult = use_difficult
         self.return_difficult = return_difficult
@@ -111,8 +119,8 @@ class VOCBboxDataset:
         for obj in anno.findall('object'):
             # when in not using difficult split, and the object is
             # difficult, skipt it.
-            # if not self.use_difficult and int(obj.find('difficult').text) == 1:
-            #     continue
+            if not self.use_difficult and int(obj.find('difficult').text) == 1:
+                continue
             difficult.append(int(obj.find('difficult').text))
             bndbox_anno = obj.find('bndbox')
             # subtract 1 to make pixel indexes 0-based
