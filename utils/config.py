@@ -7,7 +7,10 @@ from pprint import pprint
 
 class Config:
     # data
-    voc_data_dir = '/media/dataset/VOCcad'
+    # Ali dataset
+    # voc_data_dir = '/media/dataset/VOCcad'
+    # VOC2007 dataset
+    voc_data_dir = '/media/dataset/VOCdevkit/VOC2007'
     min_size = 600  # image resize
     max_size = 1000 # image resize
     num_workers = 8
