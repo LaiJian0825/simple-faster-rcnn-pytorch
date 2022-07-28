@@ -101,7 +101,6 @@ def train(**kwargs):
                                        at.tonumpy(_labels[0]).reshape(-1),
                                        at.tonumpy(_scores[0]))
                 trainer.vis.img('pred_img', pred_img)
-
                 # rpn confusion matrix(meter)
                 trainer.vis.text(str(trainer.rpn_cm.value().tolist()), win='rpn_cm')
                 # roi confusion matrix
@@ -114,16 +113,15 @@ def train(**kwargs):
         log_info = 'lr:{}, map:{},loss:{}'.format(str(lr_),
                                                   str(eval_result['map']),
                                                   str(trainer.get_meter_data()))
-        print(log_info)
         trainer.vis.log(log_info)
 
-        if eval_result['map'] > best_map:
-            best_map = eval_result['map']
-            best_path = trainer.save(best_map=best_map)
-        if epoch == 9:
-            trainer.load(best_path)
-            trainer.faster_rcnn.scale_lr(opt.lr_decay)
-            lr_ = lr_ * opt.lr_decay
+        # if eval_result['map'] > best_map:
+        #     best_map = eval_result['map']
+        #     best_path = trainer.save(best_map=best_map)
+        # if epoch == 9:
+        #     trainer.load(best_path)
+        #     trainer.faster_rcnn.scale_lr(opt.lr_decay)
+        #     lr_ = lr_ * opt.lr_decay
 
         if epoch == 13: 
             break
