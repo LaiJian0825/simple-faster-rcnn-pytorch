@@ -111,8 +111,8 @@ class VOCBboxDataset:
         for obj in anno.findall('object'):
             # when in not using difficult split, and the object is
             # difficult, skipt it.
-            if not self.use_difficult and int(obj.find('difficult').text) == 1:
-                continue
+            # if not self.use_difficult and int(obj.find('difficult').text) == 1:
+            #     continue
             difficult.append(int(obj.find('difficult').text))
             bndbox_anno = obj.find('bndbox')
             # subtract 1 to make pixel indexes 0-based
