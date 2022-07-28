@@ -113,7 +113,7 @@ def train(**kwargs):
         log_info = 'lr:{}, map:{},loss:{}'.format(str(lr_),
                                                   str(eval_result['map']),
                                                   str(trainer.get_meter_data()))
-        print(loss_info)
+        print(log_info)
         trainer.vis.log(log_info)
 
         if eval_result['map'] > best_map:
