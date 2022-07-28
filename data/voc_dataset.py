@@ -127,8 +127,8 @@ class VOCBboxDataset:
             bbox.append([
                 int(bndbox_anno.find(tag).text) - 1
                 # int(bndbox_anno.find(tag).text) ('xmin', 'ymin', 'xmax', 'ymax')
-                for tag in ('xmin', 'ymin', 'xmax', 'ymax')])
-                # for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
+                # for tag in ('xmin', 'ymin', 'xmax', 'ymax')])
+                for tag in ('ymin', 'xmin', 'ymax', 'xmax')])
 
             # name = obj.find('name').text.lower().strip()
             name = obj.find('name').text.strip()
