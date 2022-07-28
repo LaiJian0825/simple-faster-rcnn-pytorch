@@ -8,9 +8,9 @@ from pprint import pprint
 class Config:
     # data
     # Ali dataset
-    # voc_data_dir = '/media/dataset/VOCcad'
+    voc_data_dir = '/media/dataset/VOCcad'
     # VOC2007 dataset
-    voc_data_dir = '/media/dataset/VOCdevkit/VOC2007'
+    # voc_data_dir = '/media/dataset/VOCdevkit/VOC2007'
     min_size = 600  # image resize
     max_size = 1000 # image resize
     num_workers = 8
@@ -28,7 +28,7 @@ class Config:
 
 
     # visualization
-    env = 'faster-rcnn-VOC2007'  # visdom env
+    env = 'faster-rcnn'  # visdom env
     port = 6009
     plot_every = 40  # vis every N iter
 

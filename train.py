@@ -84,7 +84,7 @@ def train(**kwargs):
 
                 # plot loss
                 trainer.vis.plot_many(trainer.get_meter_data())
-                print()
+
 
 
                 # plot groud truth bboxes
