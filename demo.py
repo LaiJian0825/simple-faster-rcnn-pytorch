@@ -1,4 +1,6 @@
 import os
+
+
 import torch as t
 from utils.config import opt
 from model import FasterRCNNVGG16
@@ -15,6 +17,9 @@ trainer = FasterRCNNTrainer(faster_rcnn).cuda()
 trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
 opt.caffe_pretrain=True # this model was trained from caffe-pretrained model
 _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=True)
+_bboxes = _bboxes.tolist()
+_labels = _labels.tolist()
+_scores = _scores.tolist()
 file = open(os.path.join(result_path, '{}.txt').format(14),'w')
 file.write(str(_bboxes))
 file.write(str(_labels))
