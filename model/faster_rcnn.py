@@ -261,12 +261,12 @@ class FasterRCNN(nn.Module):
             prob = (F.softmax(at.totensor(roi_score), dim=1))
 
             bbox, label, score = self._suppress(cls_bbox, prob)
-            bboxes.append(bbox)
-            labels.append(label)
-            scores.append(score)
-            print("bbox:{}".format(bboxes))
-            print("label:{}".format(labels))
-            print("score:{}".format(scores))
+            bboxes.append(bbox.tolist())
+            labels.append(label.tolist())
+            scores.append(score.tolist())
+            # print("bbox:{}".format(bboxes))
+            # print("label:{}".format(labels))
+            # print("score:{}".format(scores))
             print(type(labels))
 
 
