@@ -264,6 +264,11 @@ class FasterRCNN(nn.Module):
             bboxes.append(bbox)
             labels.append(label)
             scores.append(score)
+            print("bbox:{}".format(bboxes))
+            print("label:{}".format(labels))
+            print("score:{}".format(scores))
+            print(type(labels))
+
 
         self.use_preset('evaluate')
         self.train()
