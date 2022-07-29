@@ -11,7 +11,7 @@ img = read_image('misc/14.png')
 img = t.from_numpy(img)[None]
 faster_rcnn = FasterRCNNVGG16()
 trainer = FasterRCNNTrainer(faster_rcnn).cuda()
-trainer.load('./checkpoints/fasterrcnn_07291035_0.6486721503704074.pth')
+trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074.pth')
 opt.caffe_pretrain=True # this model was trained from caffe-pretrained model
 _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=True)
 print(_bboxes)
