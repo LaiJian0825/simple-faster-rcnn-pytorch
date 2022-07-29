@@ -8,7 +8,7 @@ from utils.vis_tool import vis_bbox
 from utils import array_tool as at
 
 img = read_image('misc/14.png')
-result_path = 'result/'
+result_path = r'/root/projects/simple-faster-rcnn-pytorch/result/'
 img = t.from_numpy(img)[None]
 faster_rcnn = FasterRCNNVGG16()
 trainer = FasterRCNNTrainer(faster_rcnn).cuda()
