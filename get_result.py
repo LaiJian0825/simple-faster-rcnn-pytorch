@@ -21,6 +21,7 @@ imgs = glob.glob(os.path.join(image_path,'*.png'))
 result_path = r'/root/projects/simple-faster-rcnn-pytorch/result/'
 for img in imgs:
     id = img.split('/')[-1]
+    img = read_image(img, color=True)
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
