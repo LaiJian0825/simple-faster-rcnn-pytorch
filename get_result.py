@@ -13,7 +13,7 @@ for img in read_image(image_path):
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
-    trainer.load('/root/projects/simple-faster-rcnn-pytorch/checkpoints/fasterrcnn_07291035_0.6486721503704074.pth')
+    trainer.load('/checkpoints/fasterrcnn_07291035_0.6486721503704074.pth')
     opt.caffe_pretrain = False # this model was trained from torchvision-pretrained model
     _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img, visualize=True)
     # id_list_file = os.path.join(
