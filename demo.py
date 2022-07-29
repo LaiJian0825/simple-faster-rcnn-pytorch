@@ -15,10 +15,11 @@ trainer = FasterRCNNTrainer(faster_rcnn).cuda()
 trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
 opt.caffe_pretrain=True # this model was trained from caffe-pretrained model
 _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=True)
-file = open(os.path.join(result_path, '{}.txt').format(14))
+file = open(os.path.join(result_path, '{}.txt').format(14),'w')
 file.write(_bboxes)
 file.write(_labels)
 file.write(_scores)
+file.close()
 vis_bbox(at.tonumpy(img[0]),
          at.tonumpy(_bboxes[0]),
          at.tonumpy(_labels[0]).reshape(-1),
