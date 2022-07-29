@@ -184,6 +184,9 @@ class FasterRCNN(nn.Module):
         bbox = np.concatenate(bbox, axis=0).astype(np.float32)
         label = np.concatenate(label, axis=0).astype(np.int32)
         score = np.concatenate(score, axis=0).astype(np.float32)
+        bbox = bbox.tolist()
+        label = label.tolist()
+        score = score.tolist()
         return bbox, label, score
 
     @nograd
