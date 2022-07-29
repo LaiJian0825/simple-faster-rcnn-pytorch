@@ -108,6 +108,7 @@ def train(**kwargs):
                 loss_info = 'loss:{}'.format(str(trainer.get_meter_data()))
                 print(loss_info)
         eval_result = eval(test_dataloader, faster_rcnn, test_num=opt.test_num)
+        print(eval_result)
         trainer.vis.plot('test_map', eval_result['map'])
         lr_ = trainer.faster_rcnn.optimizer.param_groups[0]['lr']
         log_info = 'lr:{}, map:{},loss:{}'.format(str(lr_),

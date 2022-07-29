@@ -16,11 +16,13 @@ faster_rcnn = FasterRCNNVGG16()
 trainer = FasterRCNNTrainer(faster_rcnn).cuda()
 trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
 opt.caffe_pretrain=True # this model was trained from caffe-pretrained model
-_bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=True)
-print(_labels)
-# _bboxes = _bboxes.tolist()
-# _labels = _labels.tolist()
-# _scores = _scores.tolist()
+_bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=False)
+print("bbox:{}".format(_bboxes))
+print("label:{}".format(_labels))
+print("score:{}".format(_scores))
+print(type(_bboxes))
+
+
 file = open(os.path.join(result_path, '{}.txt').format(14),'w')
 file.write(str(_bboxes))
 file.write(str(_labels))
