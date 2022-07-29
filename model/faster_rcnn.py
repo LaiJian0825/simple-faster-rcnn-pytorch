@@ -267,7 +267,7 @@ class FasterRCNN(nn.Module):
             # print("bbox:{}".format(bboxes))
             # print("label:{}".format(labels))
             # print("score:{}".format(scores))
-            print(type(labels))
+            # print(type(labels))
 
 
         self.use_preset('evaluate')
