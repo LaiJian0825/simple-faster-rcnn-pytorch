@@ -19,9 +19,9 @@ opt.caffe_pretrain=True # this model was trained from caffe-pretrained model
 _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img,visualize=True)
 
 file = open(os.path.join(result_path, '{}.txt').format(14),'w')
-file.write(str(_bboxes[0][0]))
-file.write(str(_labels[0][0]))
-file.write(str(_scores[0][0]))
+file.write(str(_labels[0][0])+' ')
+file.write(str(_bboxes[0][0])+' ')
+file.write(str(_scores[0][0])+' ')
 file.close()
 # vis_bbox(at.tonumpy(img[0]),
 #          at.tonumpy(_bboxes[0]),
