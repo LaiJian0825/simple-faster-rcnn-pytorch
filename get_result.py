@@ -16,7 +16,8 @@ from utils import array_tool as at
 # paths.sort()
 # print(paths)
 
-image_path = '/dev/validation/'
+# image_path = '/dev/validation/'
+image_path = '/media/dataset/test/ali_test_nanning'
 imgs = glob.glob(os.path.join(image_path,'*.png'))
 print(imgs)
 result_path = 'result/'
