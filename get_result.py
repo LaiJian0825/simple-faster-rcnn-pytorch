@@ -37,9 +37,9 @@ for img in imgs:
     # print('_scores:{}'.format(_scores))
     file = open(os.path.join(result_path, '{}.txt').format(_id), 'w')
     for i in range(0, len(_labels[0])):
-        file.write(str(_labels[i]) + ' ')
-        file.write(str(_bboxes[i]) + ' ')
-        file.write(str(_scores[i]) + ' ')
+        file.write(str(_labels[0][i]) + ' ')
+        file.write(str(_bboxes[0][i]) + ' ')
+        file.write(str(_scores[0][i]) + ' ')
     file.close()
 
 
