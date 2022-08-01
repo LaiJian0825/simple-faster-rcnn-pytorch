@@ -37,6 +37,9 @@ for img in imgs:
     # id_list_file = os.path.join(
     #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
     # file = open(result_path, 'w')
+    print('_bboxes:{}'.format(_bboxes))
+    print('_labels:{}'.format(_labels))
+    print('_scores:{}'.format(_scores))
     file = open(os.path.join(result_path, '{}.txt').format(_id), 'w')
     file.write(str(_labels[0][0]) + ' ')
     file.write(str(_bboxes[0][0]) + ' ')
