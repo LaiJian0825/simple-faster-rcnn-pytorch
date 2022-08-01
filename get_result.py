@@ -24,7 +24,6 @@ result_path = 'result/'
 for img in imgs:
     img = img.split('/')[-1]
     _id = img.split('.')[-1]
-    img = read_image(img, color=True)
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
