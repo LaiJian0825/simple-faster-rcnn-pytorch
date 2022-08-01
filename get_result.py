@@ -20,28 +20,17 @@ from utils import array_tool as at
 image_path = '/media/dataset/test/ali_test_nanning/'
 imgs = glob.glob(os.path.join(image_path,'*.png'))
 
-# img = read_image('misc/14.png')
-# result_path = 'result/'
-# img = t.from_numpy(img)[None]
+
 result_path = 'result/'
 for img in imgs:
-    # img = img.split('/')[-1]
     _id = img.split('/')[-1].split('.')[0]
-    print('_id = {}'.format(_id))
-    print('img = {}'.format(img))
     img = read_image(img)
-    print('r_img = {}'.format(img))
     id_image = t.from_numpy(img)[None]
-    print('id_img = {}'.format(id_image))
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
-    # trainer.load('checkpoints/fasterrcnn_07291235_0.689377591224362')
     trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
     opt.caffe_pretrain = False  # this model was trained from torchvision-pretrained model
     _bboxes, _labels, _scores = trainer.faster_rcnn.predict(id_image, visualize=True)
-    # id_list_file = os.path.join(
-    #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
-    # file = open(result_path, 'w')
     print('_bboxes:{}'.format(_bboxes))
     print('_labels:{}'.format(_labels))
     print('_scores:{}'.format(_scores))
@@ -51,24 +40,6 @@ for img in imgs:
     file.write(str(_scores[0][0]) + ' ')
     file.close()
 
-# for img in imgs:
-#     id = img.split('/')[-1]
-#     print(id)
-#     img = read_image(img, color=True)
-#     print(img)
-#     id_image = t.from_numpy(img)[None]
-#     faster_rcnn = FasterRCNNVGG16()
-#     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
-#     trainer.load('checkpoints/fasterrcnn_07291235_0.689377591224362')
-#     opt.caffe_pretrain = True  # this model was trained from torchvision-pretrained model
-#     _bboxes, _labels, _scores = trainer.faster_rcnn.predict(img, visualize=True)
-#     # id_list_file = os.path.join(
-#     #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
-#     # file = open(result_path, 'w')
-#     file = open(os.path.join(result_path, '{}.txt').format(id))
-#     file.write(str(_labels[0][0]) + ' ')
-#     file.write(str(_bboxes[0][0]) + ' ')
-#     file.write(str(_scores[0][0]) + ' ')
-#     file.close()
+
 
 
