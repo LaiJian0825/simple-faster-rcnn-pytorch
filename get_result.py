@@ -18,10 +18,13 @@ from utils import array_tool as at
 
 image_path = '/dev/validation/'
 imgs = glob.glob(os.path.join(image_path,'*.png'))
+print(imgs)
 result_path = 'result/'
 for img in imgs:
     id = img.split('/')[-1]
+    print(id)
     img = read_image(img, color=True)
+    print(img)
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
