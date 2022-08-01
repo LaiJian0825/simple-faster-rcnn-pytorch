@@ -31,13 +31,15 @@ for img in imgs:
     trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
     opt.caffe_pretrain = False  # this model was trained from torchvision-pretrained model
     _bboxes, _labels, _scores = trainer.faster_rcnn.predict(id_image, visualize=True)
+    length = len(_labels[0])
     print('_bboxes:{}'.format(_bboxes))
     print('_labels:{}'.format(_labels))
     print('_scores:{}'.format(_scores))
     file = open(os.path.join(result_path, '{}.txt').format(_id), 'w')
-    file.write(str(_labels[0]) + ' ')
-    file.write(str(_bboxes[0]) + ' ')
-    file.write(str(_scores[0]) + ' ')
+    for i in length:
+        file.write(str(_labels[i]) + ' ')
+        file.write(str(_bboxes[i]) + ' ')
+        file.write(str(_scores[i]) + ' ')
     file.close()
 
 
