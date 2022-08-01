@@ -27,12 +27,17 @@ result_path = 'result/'
 for img in imgs:
     # img = img.split('/')[-1]
     _id = img.split('/')[-1].split('.')[0]
+    print('_id = {}'.format(_id))
+    print('img = {}'.format(img))
     img = read_image(img)
+    print('r_img = {}'.format(img))
     id_image = t.from_numpy(img)[None]
+    print('id_img = {}'.format(id_image))
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
-    trainer.load('checkpoints/fasterrcnn_07291235_0.689377591224362')
-    opt.caffe_pretrain = True  # this model was trained from torchvision-pretrained model
+    # trainer.load('checkpoints/fasterrcnn_07291235_0.689377591224362')
+    trainer.load('checkpoints/fasterrcnn_07291035_0.6486721503704074')
+    opt.caffe_pretrain = False  # this model was trained from torchvision-pretrained model
     _bboxes, _labels, _scores = trainer.faster_rcnn.predict(id_image, visualize=True)
     # id_list_file = os.path.join(
     #     data_dir, 'ImageSets/Main/{0}.txt'.format(split))
