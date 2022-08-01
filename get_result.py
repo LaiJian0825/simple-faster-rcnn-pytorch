@@ -20,10 +20,14 @@ from utils import array_tool as at
 image_path = '/media/dataset/test/ali_test_nanning/'
 imgs = glob.glob(os.path.join(image_path,'*.png'))
 
+# img = read_image('misc/14.png')
+# result_path = 'result/'
+# img = t.from_numpy(img)[None]
 result_path = 'result/'
 for img in imgs:
-    img = img.split('/')[-1]
+    # img = img.split('/')[-1]
     _id = img.split('.')[-1]
+    img = read_image(img)
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
     trainer = FasterRCNNTrainer(faster_rcnn).cuda()
