@@ -35,10 +35,11 @@ for img in imgs:
     print('_labels:{}'.format(_labels))
     print('_scores:{}'.format(_scores))
     file = open(os.path.join(result_path, '{}.txt').format(_id), 'w')
-    file.write(str(_labels[0][0]) + ' ')
-    file.write(str(_bboxes[0][0]) + ' ')
-    file.write(str(_scores[0][0]) + ' ')
+    file.write(str(_labels[0]) + ' ')
+    file.write(str(_bboxes[0]) + ' ')
+    file.write(str(_scores[0]) + ' ')
     file.close()
+
 
 
 
