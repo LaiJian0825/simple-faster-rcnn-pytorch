@@ -40,6 +40,7 @@ for img in imgs:
         file.write(str(_labels[0][i]) + ' ')
         file.write(str(_bboxes[0][i]) + ' ')
         file.write(str(_scores[0][i]) + ' ')
+        file.write("\n")
     file.close()
 
 
