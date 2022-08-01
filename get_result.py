@@ -26,7 +26,7 @@ imgs = glob.glob(os.path.join(image_path,'*.png'))
 result_path = 'result/'
 for img in imgs:
     # img = img.split('/')[-1]
-    _id = img.split('/')[-1].split('.')
+    _id = img.split('/')[-1].split('.')[0]
     img = read_image(img)
     id_image = t.from_numpy(img)[None]
     faster_rcnn = FasterRCNNVGG16()
