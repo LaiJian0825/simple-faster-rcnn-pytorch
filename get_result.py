@@ -10,7 +10,8 @@ from utils import array_tool as at
 
 
 # image_path = '/dev/validation/'
-image_path = '/media/dataset/test/ali_test_nanning/'
+# image_path = '/media/dataset/test/ali_test_nanning/'
+image_path = '/dev/validation_2000x2000/'
 imgs = glob.glob(os.path.join(image_path,'*.png'))
 
 
